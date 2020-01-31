@@ -12,8 +12,9 @@ exports.registerUser = (req, res) => {
     if (req.body.email === null || req.body.email === "") return response.error(res, "email can't be empty");
     if (req.body.password === null || req.body.password === "") return response.error(res, "Password can't be empty");
     if (!isPasswordValid(req.body.password)) return response.error(res, "Password must have lower case, upper case, number, and minimal 8 digits");
-    if (req.body.phone === null || req.body.phone === "") return response.error(res, "phone number can't be empty");
-    img_user = "https://www.wom.co.id/upload-pegawai/default-user.png";
+    img_user = "https://clara-indonesia.com/n_template/images/default-user.png";
+    if (req.body.phone === null || req.body.phone === "") return response.error(res, "phone can't be empty");
+
 
     model.getEmail(req).then(result => {
         if (result.length != 0) response.error(res, "email has been registered, please change your email");

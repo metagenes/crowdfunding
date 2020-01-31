@@ -1,7 +1,9 @@
 'use-strict';
 
 const express = require('express'),
-    user = require('./user');
+    user = require('./user'),
+    event = require('./event'),
+    {validateUser} = require('../Helpers/middleware');
 
 const Router = express.Router();
 
@@ -14,6 +16,7 @@ Router.get('/', (req, res) => {
 
 
 Router.use('/user', user);
+Router.use('/event', event);
 
 
 

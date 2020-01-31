@@ -10,8 +10,8 @@ exports.registerUser = req => {
 
     return new Promise((resolve, reject) => {
 
-        conn.query(`INSERT INTO users SET email = ?, name = ?, password = ?, img_user = ?, phone = ?, contribution = 0`,
-            [body.email,body.name, pass, img_user, body.phone],
+        conn.query(`INSERT INTO users SET email = ?, name = ?, password = ?, contribution = 0, img_user = ?, phone = ?`,
+            [body.email,body.name, pass,img_user,body.phone],
             (err, result) => {
                 if(!err) resolve(result);
                 else reject(err);
