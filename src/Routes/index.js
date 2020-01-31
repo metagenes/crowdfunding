@@ -9,7 +9,7 @@ const Router = express.Router();
 
 Router.get('/', (req, res) => {
     res.json({
-        message: "Karyawan API"
+        message: "Crowdfunding API"
     });
 })
 

@@ -23,4 +23,22 @@ exports.postEvent = (req, res) => {
             .then(result => {
                 response.success(res, result);
             }).catch(err => response.error(res, err));
-        }
+}
+
+exports.getEvent = (req, res) => {
+    model.getEvent(req)
+    .then(result => {
+    response.success(res, result);
+    })
+    .catch(err => response.error(res, err));
+}
+
+
+exports.patchEvent = (req, res) => {
+    model
+    .patchEvent(req)
+        .then(result => {
+            response.success(res, result);
+        }).catch(err => response.error(res, err));
+}
+

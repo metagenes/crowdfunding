@@ -12,3 +12,37 @@ exports.postEvent = req => {
         });
     });
 }
+
+exports.getEvent = () => {
+    return new Promise((resolve, reject) => {
+        conn.query('SELECT * from event JOIN category_event ON event.category_id = category_event.id_category',
+        (err, result) => {
+            if (!err) resolve(result);
+            else reject(err);
+        });
+    });
+}
+
+exports.patchEvent = req => {
+    const body = req.body;
+  const id_event = req.params.id_event;
+    return new Promise((resolve, reject) => {
+        conn.query('update event SET event_name = ?, tagline = ?, description = ?,img_url = ?, category_id = ?, end_date =? where id_event = ?', [body.event_name, body.tagline, body.description, body.img_url, body.category_id,body.end_date, id_event],
+        (err, result) => {
+            if(!err) resolve(result);
+            else reject(err);
+        });
+    });
+}
+
+// exports.patchEvent = (req,id_event) => {
+//     // const body = req.body;
+// //   const id_event = req.params.id_event;
+//     return new Promise((resolve, reject) => {
+//         conn.query('update event SET ? where id_event = ?', [req,id_event],
+//         (err, result) => {
+//             if(!err) resolve(result);
+//             else reject(err);
+//         });
+//     });
+// }

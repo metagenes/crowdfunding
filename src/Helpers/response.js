@@ -3,6 +3,7 @@
 exports.success = (res, result) => {
     let form = {
         status : 200,
+        message : "success",
         result
     }
     res.json(form);

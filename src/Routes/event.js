@@ -6,7 +6,9 @@ const express = require('express'),
 
 const Router = express();
 
-Router.post('/', controller.postEvent);
+Router.post('/', validateUser, controller.postEvent);
+Router.get('/', controller.getEvent);
+Router.patch('/:id_event',validateUser, controller.patchEvent);
 
 
 
